@@ -129,26 +129,26 @@ public class DataBaseOperations {
 
     public Students buildStudents(ResultSet resultSet) throws SQLException {
         Students students = new Students();
-        students.setStudentId(resultSet.getInt(1));
-        students.setFirstName(resultSet.getString(2));
-        students.setLastName(resultSet.getString(3));
-        students.setYearOfBirth(resultSet.getInt(4));
+        students.setStudentId(resultSet.getInt("id_student"));  //getInt(1));
+        students.setFirstName(resultSet.getString("first_name"));
+        students.setLastName(resultSet.getString("last_name"));
+        students.setYearOfBirth(resultSet.getInt("year_of_birth"));
         return students;
     }
 
     private static Classes buildClassesRecord(ResultSet resultSet) throws SQLException {
         Classes classes = new Classes();
-        classes.setId(resultSet.getInt(1));
-        classes.setClassName(resultSet.getString(2));
-        classes.setTeacherId(resultSet.getInt(3));
-        classes.setStudentId(resultSet.getInt(4));
+        classes.setId(resultSet.getInt("id_record"));
+        classes.setClassName(resultSet.getString("name_class"));
+        classes.setTeacherId(resultSet.getInt("id_teacher"));
+        classes.setStudentId(resultSet.getInt("id_student"));
         return classes;
     }
 
     private static Teachers buildTeachers(ResultSet resultSet) throws SQLException {
         Teachers teachers = new Teachers();
-        teachers.setTeacherId(resultSet.getInt(1));
-        teachers.setTeacherName(resultSet.getString(2));
+        teachers.setTeacherId(resultSet.getInt("id_teacher"));
+        teachers.setTeacherName(resultSet.getString("name_teacher"));
         return teachers;
     }
 }
